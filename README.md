@@ -1,6 +1,8 @@
 # BigIngeterCalculation
 Some code i wrote to implement the key algorithms that the Prof. Chen taught while learning the Number Therom this semester.
 
+[![myblog](https://img.shields.io/badge/ainevsia-project-success.svg)](ainevsia.github.io)
+
 # Why to re-build the wheel?
 
 Ask Google and it will tell you that there already exists an owesome tool to do fast and reliable big integer calculation called `GMP`. `GNU MP` is a portable library written in C for arbitrary precision arithmetic on `integers`, `rational numbers`, `and floating-point numbers`. It aims to provide the **fastest possible arithmetic** for all applications that need **higher precision** than is directly supported by the basic C types.
