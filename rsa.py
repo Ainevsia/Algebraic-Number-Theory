@@ -16,8 +16,26 @@ def cald(phi, e):
         e = r
     return t
 
+# used to convert message to hex integers
+def hexify(s):
+    lst = []
+    for ch in s:
+        hv = hex(ord(ch)).replace('0x', '')
+        lst.append(hv)
+    return '0x' + ''.join(lst)
+
 d = cald(phi, e) % phi
-a = 517021910601 
-c = pow(a, e, n)
-print(c)
-print(pow(c, d, n))
+a = input('please input the message you want to encrypt:') 
+c = pow(eval(hexify(a)), e, n)
+plaintext = hex(pow(c, d, n)).replace('0x', '')
+if len(plaintext) % 2 == 1:
+    plaintext = '0' + plaintext
+
+def stringify(plaintext):
+    lst = []
+    end = len(plaintext) // 2
+    for i in range(end):
+        lst.append(chr(eval('0x' + plaintext[2*i: 2*(i+1)])))
+    return ''.join(lst)
+
+print(stringify(plaintext))
