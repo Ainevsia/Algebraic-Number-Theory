@@ -23,7 +23,7 @@ def hexify(s):
     Used to convert message to hex integers.
 
     :param s:
-    :return: 
+    :return:
     """
     if not s:
         return '0x21'
