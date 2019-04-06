@@ -299,4 +299,4 @@ TSWLatexianTemp*
 *-tags.tex
 
 # standalone packages
-*.sta
+__pycache__/
