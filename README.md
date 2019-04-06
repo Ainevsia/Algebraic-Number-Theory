@@ -1,12 +1,11 @@
-\maketitle
 作业要求
 ========
 
 编程实现RSA密码系统：
 
-1.  随机产生大素数$p, q$（位长14-bit）以及$p\cdot q=n$.
+1.  随机产生大素数p, q（位长14-bit）以及p * q=n.
 
-2.  随机产生公私钥对$(e, n)$及$d$.
+2.  随机产生公私钥对(e, n)及d
 
 3.  对消息"m = Mathematical Fundation of Information security +
     201904051 + 学号"进行数字化
@@ -49,9 +48,7 @@
 样例结果
 --------
 
-\centering
-![样例输出[]{label="fig:sample"}](sample.png){#fig:sample
-width=".8\textwidth"}
+![](./Theorems/sample.png)
 
 总体思路
 ========
@@ -94,6 +91,6 @@ width=".8\textwidth"}
 参考
 ====
 
--   RSA周边------大素数是怎样生成的\
+-   RSA周边------大素数是怎样生成的
 
--   使用python生成固定长度的随机字符串\
+-   使用python生成固定长度的随机字符串
