@@ -2,23 +2,28 @@ from RandBigPrime import random_prime
 from fast_power import fast_power
 from str_rsa import *
 
-byte = 128
-p = random_prime(byte)
+byte = 128  # nubmer of bytes of p and q
+p = random_prime(byte)  # p,q is byte * 8 bit big integers
 q = random_prime(byte)
 n = p * q
-max_len = (len(hex(n).replace('0x', ''))) // 2
 phi = (p - 1) * (q - 1)
-e = 65537
+e = random_prime(2)  # (e,n) are the public key
+while phi % e == 0:  # generate e st. (e,phi(n)) = 1
+    e = random_prime(2)
 
-d = inverse(phi, e) % phi
-a = input('message 2 encrypt: ')
+# in case the message to be encrypted is too long
+max_len = (len(hex(n).replace('0x', ''))) // 2
+
+# preparations
+d = inverse(phi, e) % phi  # (d,n) are the private key
+a = input('message to encrypt: ')
 if len(a) > max_len:
     a = a[0:max_len - 1]
 
-c = fast_power(eval(hexify(a)), e, n)
-print('message encrypted: ' + stringify(str(c)))
+# encrypting
+ciphertext = fast_power(eval(hexify(a)), e, n)
+print('message encrypted: ' + str(ciphertext))
 
-plaintext = hex(fast_power(c, d, n)).replace('0x', '')
-if len(plaintext) % 2 == 1:
-    plaintext = '0' + plaintext
+# decrypting
+plaintext = hex(fast_power(ciphertext, d, n)).replace('0x', '')
 print('decrypted message: ' + stringify(plaintext))

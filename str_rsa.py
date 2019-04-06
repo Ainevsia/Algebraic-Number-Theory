@@ -4,7 +4,7 @@ def inverse(phi, e):
 
     :param phi:
     :param e:
-    :return:
+    :return: an integer d st. d*e = 1 (mod phi)
     """
     s, t, sn, tn, r = 1, 0, 0, 1, 1
     while r != 0:
@@ -20,13 +20,13 @@ def inverse(phi, e):
 
 def hexify(s):
     """
-    Used to convert message to hex integers.
+    Used to convert message to hex integers when encrypting.
 
-    :param s:
-    :return:
+    :param s: a string.
+    :return: a string like '0x..', decode each character as a ascii hex number.
     """
-    if not s:
-        return '0x21'
+    if not s:  # if input is null, evcrypt the message: '!'
+        return '0x21'  # ascii code for '!'
     lst = []
     for ch in s:
         hv = hex(ord(ch)).replace('0x', '')
@@ -35,6 +35,14 @@ def hexify(s):
 
 
 def stringify(plaintext):
+    """
+    Used to convert hex integers into a string when decrypting.
+
+    :param plaintext: a hex integer number.
+    :return: a ascii string.
+    """
+    if len(plaintext) % 2 == 1:
+        plaintext = '0' + plaintext
     lst = []
     end = len(plaintext) // 2
     for i in range(end):
