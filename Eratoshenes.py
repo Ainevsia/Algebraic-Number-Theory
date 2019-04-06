@@ -1,3 +1,6 @@
+"""
+Use the Eratoshenes Algorithm to generate first 1229 prime numbers.
+"""
 max = 10000
 smax = 100
 cnt = 0

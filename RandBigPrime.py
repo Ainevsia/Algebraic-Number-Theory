@@ -1,7 +1,15 @@
 from random import Random
+from Prime import prime
+from FermatTest import fermat_test
 
 
 def random_str(randomlength):
+    """
+    Generate a qualified Hex number, containing character from 0 to f.
+
+    :param randomlength: integer, lengeth of the string.
+    :return: a string.
+    """
     ret_str = ''
     chars = 'abcdef0123456789'
     length = len(chars) - 1
@@ -11,13 +19,16 @@ def random_str(randomlength):
     return ret_str
 
 
-from Prime import prime
-from FermatTest import fermat_test
+def random_prime(bit):
+    """
+    Use a randomly generated hex string, fermat test to generate a
+    pseudo-prime number.
 
-
-def random_prime():
+    :param bit: integer, number of bits of the prime number (usually 256).
+    :return: integer, a pseudo-prime number
+    """
     while True:
-        ran_int = eval('0x' + random_str(256))
+        ran_int = eval('0x' + random_str(bit))
         if ran_int & 1 == False:
             ran_int += 1
         notprime = False
