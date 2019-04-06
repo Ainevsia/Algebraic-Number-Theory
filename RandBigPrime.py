@@ -19,16 +19,16 @@ def random_str(randomlength):
     return ret_str
 
 
-def random_prime(bit):
+def random_prime(byte):
     """
     Use a randomly generated hex string, fermat test to generate a
     pseudo-prime number.
 
-    :param bit: integer, number of bits of the prime number (usually 256).
+    :param bit: integer, number of bytes of the prime number (usually 128).
     :return: integer, a pseudo-prime number
     """
     while True:
-        ran_int = eval('0x' + random_str(bit))
+        ran_int = eval('0x' + random_str(2 * byte))
         if ran_int & 1 == False:
             ran_int += 1
         notprime = False
