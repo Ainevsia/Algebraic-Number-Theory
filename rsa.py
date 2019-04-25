@@ -6,7 +6,7 @@ byte = 128  # nubmer of bytes of p and q
 p = random_prime(byte)  # p,q is byte * 8 bit big integers
 q = random_prime(byte)
 n = p * q
-phi = (p - 1) * (q - 1)
+phi = (p - 1) * (q - 1),
 e = random_prime(2)  # (e,n) are the public key
 while phi % e == 0:  # generate e st. (e,phi(n)) = 1
     e = random_prime(2)
