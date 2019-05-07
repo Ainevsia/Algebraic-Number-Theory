@@ -31,7 +31,8 @@ if __name__ == '__main__':
         for b in blst:
             guv_idx = (gk.index(a) + gk.index(b)) % (p - 1)
             guv = gk[guv_idx]
-            if guv ==a * b % p:
-                print('√',end='')
+            if guv == a * b % p:
+                print('√', end='')
             else:
                 print('×', end='')
+    print(Legendre(103, 1601))
