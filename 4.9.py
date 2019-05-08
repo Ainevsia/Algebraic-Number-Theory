@@ -1,5 +1,3 @@
-import time
-
 
 def solve_x_y_for_x2_plus_y2_equals_p(p):
     div, mod = divmod(p - 5, 8)
@@ -21,22 +19,3 @@ if __name__ == '__main__':
         x, y = solve_x_y_for_x2_plus_y2_equals_p(p)
         if x ** 2 + y ** 2 == p:
             print(x, '^2 + ', y, '^2 = ', p)
-    # p = 100000037
-    # start = time.clock()
-    # x, y = solve_x_y_for_x2_plus_y2_equals_q([])
-    # end = time.clock()
-    # print(end - start)
-    # print(x, y)
-    # found = False
-    # start = time.clock()
-    # for x in range(p):
-    #     if found:
-    #         break
-    #     for y in range(p):
-    #         if found:
-    #             break
-    #         if x ** 2 + y ** 2 == p:
-    #             print(x, y)
-    #             found = True
-    # end = time.clock()
-    # print(end - start)

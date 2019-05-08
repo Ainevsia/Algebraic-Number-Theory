@@ -57,7 +57,12 @@ def Legendre(a, p):
     elif a == 0:
         return 0
     else:
-        return 1 if T(a, p) % 2 == 0 else -1
+        # take into consideration when 2 | a
+        ls = factor(a)
+        if ls[0] == 2:
+            return Legendre(2, p) * Legendre(a // 2, p)
+        else:
+            return 1 if T(a, p) % 2 == 0 else -1
 
 
 def T(a, p):
@@ -68,4 +73,46 @@ def T(a, p):
     ed = (p + 1) >> 1
     for i in range(ed):
         ret += a * i // p
+    return ret
+
+
+def inverse_a_mod_p(a, p):
+    """
+    Use the Bezout law to calculate the inverse of e to the modulus of phi.
+    """
+    s, t, sn, tn, r = 1, 0, 0, 1, 1
+    while r != 0:
+        q = p // a
+        r = p - q * a
+        st, tt = sn * (-q) + s, tn * (-q) + t
+        s, t = sn, tn
+        sn, tn = st, tt
+        p = a
+        a = r
+    return t
+
+
+def factor(m):
+    factorls = []
+    idx = 0
+    while prime[idx] <= m:
+        i = prime[idx]
+        div, mod = divmod(m, i)
+        if mod == 0:
+            m //= i
+            factorls.append(i)
+        else:
+            idx += 1
+    return factorls
+
+
+def Jacobi(a, m):
+    if m > prime[-1]:
+        flag = 1 if ~((a - 1) // 2 & 1) | ~((m - 1) // 2 & 1) else -1
+        return flag * Jacobi(m, a)
+
+    factorls = factor(m)
+    ret = 1
+    for i in factorls:
+        ret *= Legendre(a, i)
     return ret
