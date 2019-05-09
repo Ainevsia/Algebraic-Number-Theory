@@ -92,7 +92,7 @@ def inverse_a_mod_p(a, p):
     return t
 
 
-def factor(m):
+def factor(m, repeat=True):
     factorls = []
     idx = 0
     while prime[idx] <= m:
@@ -103,7 +103,7 @@ def factor(m):
             factorls.append(i)
         else:
             idx += 1
-    return factorls
+    return factorls if repeat else list(set(factorls))
 
 
 def Jacobi(a, m):
@@ -116,3 +116,41 @@ def Jacobi(a, m):
     for i in factorls:
         ret *= Legendre(a, i)
     return ret
+
+
+def simplified_redundant(m):
+    ls = []
+    for i in range(1, m):
+        if gcd(i, m) == 1:
+            ls.append(i)
+    return ls
+
+
+def root(p):
+    if p == 2:
+        print('2 does not have root.')
+        return 0
+    if p not in prime and p < prime[-1]:
+        print('p is not a prime number.')
+        return 0
+    exponent = [p // pi for pi in factor(phi(p), repeat=False)]
+    roottestls = [2, 3, 5, 6, 7, 10, 11, 13, 14, 15, 17, 19, 21, 22, 23, 26, 29]
+    found = False
+    g = 0
+
+    # find the first root
+    for rt in roottestls:
+        for expo in exponent:
+            if pow(rt, expo, p) == 1:
+                break
+            if expo == exponent[-1]:
+                g = rt
+                found = True
+        if found:
+            break
+
+    # find all the roots
+    rootls = []
+    for sim_redun in simplified_redundant(p - 1):
+        rootls.append(pow(g, sim_redun, p))
+    return rootls
