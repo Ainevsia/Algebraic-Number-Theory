@@ -1,7 +1,6 @@
 from toolkit import *
 
 p = 31
-phi = phi(p)
 
 if __name__ == '__main__':
     simplified_redundant = []
@@ -15,7 +14,7 @@ if __name__ == '__main__':
     print(ordpa)
     glst = []
     for i in range(len(simplified_redundant)):
-        if ordpa[i] == phi:
+        if ordpa[i] == phi(p):
             glst.append(simplified_redundant[i])
     print(glst)
     g = glst[0]
@@ -35,4 +34,3 @@ if __name__ == '__main__':
                 print('√', end='')
             else:
                 print('×', end='')
-    print(Legendre(103, 1601))
