@@ -1,4 +1,6 @@
 from Prime import prime
+from os import urandom
+import binascii
 import csv
 
 
@@ -112,6 +114,7 @@ def Jacobi(a, m):
         return flag * Jacobi(m, a)
 
     factorls = factor(m)
+    # print(factorls)
     ret = 1
     for i in factorls:
         ret *= Legendre(a, i)
@@ -126,12 +129,32 @@ def simplified_redundant(m):
     return ls
 
 
-def root(p):
+def ori_root(p):
+    simplified_redundant = []
+    for i in range(1, p):
+        if gcd(i, p) == 1:
+            simplified_redundant.append(i)
+    # print(simplified_redundant)
+    # find a st. gcd(a, m) =1
+    # only a i n simplified_redundant can have ord
+
+    ordpa = []
+    for a in simplified_redundant:  # range contains the first exclude the last
+        ordpa.append(ord(p, a))
+    # print(ordpa)
+    glst = []
+    for i in range(len(simplified_redundant)):
+        if ordpa[i] == phi(p):
+            glst.append(simplified_redundant[i])
+    print(glst)
+
+
+def root(p, first=False):
     if p == 2:
         print('2 does not have root.')
         return 0
     if p not in prime and p < prime[-1]:
-        print('p is not a prime number.')
+        print('[WARNING] : p is not a prime number.')
         return 0
     exponent = [p // pi for pi in factor(phi(p), repeat=False)]
     roottestls = [2, 3, 5, 6, 7, 10, 11, 13, 14, 15, 17, 19, 21, 22, 23, 26, 29]
@@ -148,9 +171,19 @@ def root(p):
                 found = True
         if found:
             break
-
+    if first:
+        return g
     # find all the roots
     rootls = []
     for sim_redun in simplified_redundant(p - 1):
         rootls.append(pow(g, sim_redun, p))
     return rootls
+
+
+def randint(n):
+    '''
+    randomly generate a int number of n bytes
+    :param n: byte length
+    :return: class int
+    '''
+    return int(binascii.hexlify(urandom(n)), 16)

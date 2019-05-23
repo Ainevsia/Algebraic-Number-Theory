@@ -8,6 +8,9 @@ if __name__ == '__main__':
         if gcd(i, p) == 1:
             simplified_redundant.append(i)
     print(simplified_redundant)
+    # find a st. gcd(a, m) =1
+    # only a i n simplified_redundant can have ord
+
     ordpa = []
     for a in simplified_redundant:  # range contains the first exclude the last
         ordpa.append(ord(p, a))
