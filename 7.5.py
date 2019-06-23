@@ -4,7 +4,7 @@ from math import sqrt, floor, gcd
 # use this package to represent rational numbers and the result can be accurate
 
 m = 47 * 67
-m=1037
+m = 1037
 n = m ** 0.5
 print('n =', n)
 print('k\ta_i\t' + 'P_i'.ljust(20))
@@ -21,7 +21,7 @@ for i in range(30):
     plst.append(P_n)
 
     factorlst.append((pow(P_n, 2, m)))
-    print(i, '\t', a, '\t', str(P_n).ljust(30),str(Q_n).ljust(20), sep='')
+    print(i, '\t', a, '\t', str(P_n).ljust(30), str(Q_n).ljust(20), sep='')
     if i & 1 == 0 and i != 0 and int(sqrt(Q_n)) * int(sqrt(Q_n)) == Q_n:
         s = int(Q_n ** 0.5)
         print(s)

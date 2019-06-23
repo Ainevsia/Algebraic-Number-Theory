@@ -24,13 +24,13 @@ def gcd(x, y):
     return x
 
 
-# def ord(m, a):
-#     ret = 0
-#     for e in range(1, phi(m) + 1):
-#         if pow(a, e, m) == 1:
-#             ret = e
-#             break
-#     return ret
+def ord(m, a):
+    ret = 0
+    for e in range(1, phi(m) + 1):
+        if pow(a, e, m) == 1:
+            ret = e
+            break
+    return ret
 
 
 def write_gk_table(gk, p):
@@ -146,6 +146,7 @@ def ori_root(p):
     for i in range(len(simplified_redundant)):
         if ordpa[i] == phi(p):
             glst.append(simplified_redundant[i])
+    # print(glst)
     print(glst)
 
 
