@@ -2,7 +2,7 @@ from toolkit import *
 
 
 def test():
-    for i in prime[2:20]:
+    for i in prime[2:10]:
         print(i)
         print(sorted(root(i)))
         print(ori_root(i ** 2))
@@ -19,3 +19,4 @@ if __name__ == '__main__':
         if pow(14,i,29**2)==1:
             print(i)
             break
+    test()
