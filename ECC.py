@@ -31,7 +31,6 @@ def add(E, P, Q):
         y3 = (lambda_ecc * (x1 - x3) - y1) % p
         return (x3, y3)
 
-
 def eg14_2_6():
     p = 17
     a4, a6 = 3, 1
@@ -62,5 +61,41 @@ def eg14_2_4():
     P22 = add(E, P11, P11)
     print("11P =", P22)
 
+def hk14_2_4_1():
+    print("homework eg 14.2.4 question (1)")
+    p = 17
+    a4, a6 = 2, 3
+    E = (a4, a6, p) # Elliptic Curves
+
+    P = 'O'
+    P1 = (5,6)
+    cnt = 0
+
+    while P != 'O' or cnt == 0:
+        cnt += 1
+        P = add(E, P, P1)
+        print('{:2}P {}'.format(cnt, P))
+
+    print("#(E) = {}".format(cnt))
+
+def hk14_2_4_2():
+    print("homework eg 14.2.4 question (2)")
+    p = 17
+    a4, a6 = 2, 3
+    E = (a4, a6, p) # Elliptic Curves
+
+    P = 'O'
+    P1 = (9,6)
+    cnt = 0
+
+    while P != 'O' or cnt == 0:
+        cnt += 1
+        P = add(E, P, P1)
+        print('{:2}P = {}'.format(cnt, P))
+
+    print("#(E) = {}".format(cnt))
+
+
 if __name__ == "__main__":
-    eg14_2_4()
+    hk14_2_4_1()
+    hk14_2_4_2()
