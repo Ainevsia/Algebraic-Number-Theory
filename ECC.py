@@ -95,7 +95,48 @@ def hk14_2_4_2():
 
     print("#(E) = {}".format(cnt))
 
+def hk14_2_6():
+    print("homework eg 14.2.6")
+    p = 17
+    a4, a6 = 3, 1
+    E = (a4, a6, p) # Elliptic Curves
+
+    P = 'O'
+    P1 = (2,7)
+    cnt = 0
+    lst = []
+
+    while P != 'O' or cnt == 0:
+        cnt += 1
+        P = add(E, P, P1)
+        print('{:2}P = {}'.format(cnt, P))
+        lst.append(P)
+
+    print("#(E) = {}".format(cnt))
+    return lst
+
+def plt_hk14_2_6(lst):
+    print(lst.pop()) # remove the inf point
+    import matplotlib.pyplot as plt
+    
+    (x, y) = (list(tup) for tup in list(zip(*lst)))
+    plt.scatter(x, y, s=250)
+    i = 0
+    for (xi, yi) in zip(x, y):
+        i += 1
+        if i == len(x):
+            plt.annotate('{}P'.format(i), (xi-1, yi-1))
+            break
+        plt.arrow(xi, yi, x[i] - xi, y[i] - yi,
+            width=0.05, shape='full', head_width=0.5, head_length=0.75,
+            length_includes_head=True, facecolor='black',)
+        plt.annotate('{}P'.format(i), (xi-1, yi-1))
+    plt.xlim(-1, 16)
+    plt.ylim(-1, 17)
+    plt.show()
+
 
 if __name__ == "__main__":
     hk14_2_4_1()
     hk14_2_4_2()
+    plt_hk14_2_6(hk14_2_6())
