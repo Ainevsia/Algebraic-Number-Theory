@@ -1,3 +1,7 @@
+__author__ = 'Zhipeng Xu'
+__modified__ = '2019-12-20 20:12:28'
+
+
 def inverse(a, p):
     a = a % p # make sure a and p are both positive
     s, t, sn, tn, r = 1, 0, 0, 1, 1
@@ -118,7 +122,7 @@ def hk14_2_6():
 def plt_hk14_2_6(lst):
     print(lst.pop()) # remove the inf point
     import matplotlib.pyplot as plt
-    
+
     (x, y) = (list(tup) for tup in list(zip(*lst)))
     plt.scatter(x, y, s=250)
     i = 0
@@ -137,6 +141,6 @@ def plt_hk14_2_6(lst):
 
 
 if __name__ == "__main__":
-    hk14_2_4_1()
-    hk14_2_4_2()
+    # hk14_2_4_1()
+    # hk14_2_4_2()
     plt_hk14_2_6(hk14_2_6())
