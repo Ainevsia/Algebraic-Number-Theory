@@ -1,0 +1,105 @@
+置换$\sigma=\begin{pmatrix}
+    1 & 2 & 3 & 4 & 5 & 6 \\
+    6 & 5 & 4 & 2 & 1 & 3
+\end{pmatrix}$，$\tau=\begin{pmatrix}
+    1 & 2 & 3 & 4 & 5 & 6 \\
+    5 & 6 & 4 & 2 & 3 & 1
+\end{pmatrix}$，
+求$\sigma^{-1}, \sigma\tau\sigma^{-1}, \sigma\tau$，
+并将$\tau, \sigma\tau\sigma^{-1}$表示为一系列循环置换的乘积。
+
+
+\begin{tcolorbox}
+    \textbf{置换群} 
+    \textit{考察了简单概念，求逆就是交换行，列可以随意交换，阅读书p261-p263即可理解}
+\end{tcolorbox}
+
+
+\begin{solution}\ \\
+    % 1 sigma
+    \begin{equation*}
+        \begin{aligned}
+            \sigma^{-1}
+            \overset{\text{交换行}}{=}
+            \begin{pmatrix}
+                6 & 5 & 4 & 2 & 1 & 3 \\
+                1 & 2 & 3 & 4 & 5 & 6
+            \end{pmatrix}
+            =
+            \begin{pmatrix}
+                1 & 2 & 3 & 4 & 5 & 6 \\
+                5 & 4 & 6 & 3 & 2 & 1
+            \end{pmatrix}
+        \end{aligned}
+    \end{equation*}
+
+    % 2 \sigma\tau
+    \begin{equation*}
+        \begin{aligned}
+            \sigma\tau
+            &=
+            \begin{pmatrix}
+                1 & 2 & 3 & 4 & 5 & 6 \\
+                6 & 5 & 4 & 2 & 1 & 3
+            \end{pmatrix}\begin{pmatrix}
+                1 & 2 & 3 & 4 & 5 & 6 \\
+                5 & 6 & 4 & 2 & 3 & 1
+            \end{pmatrix}\\
+            &=
+            \begin{pmatrix}
+                5 & 6 & 4 & 2 & 3 & 1 \\
+                1 & 3 & 2 & 5 & 4 & 6
+            \end{pmatrix}\begin{pmatrix}
+                1 & 2 & 3 & 4 & 5 & 6 \\
+                5 & 6 & 4 & 2 & 3 & 1
+            \end{pmatrix}\\
+            &=
+            \begin{pmatrix}
+                1 & 2 & 3 & 4 & 5 & 6 \\
+                1 & 3 & 2 & 5 & 4 & 6
+            \end{pmatrix}
+        \end{aligned}
+    \end{equation*}
+
+    % 3 \sigma\tau\sigma^{-1}
+    \begin{equation*}
+        \begin{aligned}
+            \sigma\tau\sigma^{-1}
+            &=
+            \begin{pmatrix}
+                1 & 2 & 3 & 4 & 5 & 6 \\
+                6 & 5 & 4 & 2 & 1 & 3
+            \end{pmatrix}\begin{pmatrix}
+                1 & 2 & 3 & 4 & 5 & 6 \\
+                5 & 6 & 4 & 2 & 3 & 1
+            \end{pmatrix}\begin{pmatrix}
+                1 & 2 & 3 & 4 & 5 & 6 \\
+                5 & 4 & 6 & 3 & 2 & 1
+            \end{pmatrix}\\
+            &=
+            \begin{pmatrix}
+                3 & 2 & 1 & 4 & 6 & 5 \\
+                4 & 5 & 6 & 2 & 3 & 1
+            \end{pmatrix}\begin{pmatrix}
+                5 & 4 & 6 & 3 & 2 & 1 \\
+                3 & 2 & 1 & 4 & 6 & 5
+            \end{pmatrix}\begin{pmatrix}
+                1 & 2 & 3 & 4 & 5 & 6 \\
+                5 & 4 & 6 & 3 & 2 & 1
+            \end{pmatrix}\\
+            &=
+            \begin{pmatrix}
+                1 & 2 & 3 & 4 & 5 & 6 \\
+                4 & 5 & 6 & 2 & 3 & 1
+            \end{pmatrix}
+        \end{aligned}
+    \end{equation*}
+将$\tau, \sigma\tau\sigma^{-1}$表示为一系列循环置换的乘积：
+\begin{equation*}
+    \begin{aligned}
+        \tau&=(1,5,3,4,2,6)\\
+        \sigma\tau\sigma^{-1}&=(1,4,2,5,3,6)
+    \end{aligned}
+\end{equation*}
+    
+\end{solution}
