@@ -1,0 +1,31 @@
+\begin{tcolorbox}
+    \textbf{知识点} 
+    \textit{素域及域的特征p272-273，自同态、自同构，二项展开，映射}
+\end{tcolorbox}
+\begin{solution}\ \\
+    取任意的$\alpha, \beta\in\mathbb{F}_{q^n}$，有
+    \begin{equation*}
+        \sigma_q(\alpha+\beta)=(\alpha+\beta)^q=\alpha^q+\beta^q+\sum\limits_{k=1}^{q-1}\frac{q!}{k!(q-k)!}\alpha^k\beta^{q-k}
+    \end{equation*}
+    因为域$\mathbb{F}_{q}=\mathbb{F}_{p^m}$由域$\mathbb{F}_{p}$扩张得到，而域$\mathbb{F}_{q^n}$由域$\mathbb{F}_{q}$扩张得到，$p$为素数，所以域$\mathbb{F}_{p}$为域$\mathbb{F}_{q^n}$的素域，域$\mathbb{F}_{q^n}$的特征$char(\mathbb{F}_{q^n})=p$，由域的特征的定义可知对$\forall\gamma\in\mathbb{F}_{q^n}$：
+    \begin{equation*}
+        \begin{aligned}
+            p\cdot\gamma&=0\\ \Rightarrow q\cdot\gamma&=p^m\cdot\gamma=0
+        \end{aligned}
+    \end{equation*}
+    $\because1\leq k\leq q-1,\ (q, k!(q-k)!)=1,\ \therefore q\sum\limits_{k=1}^{q-1}\frac{(q-1)!}{k!(q-k)!}\alpha^k\beta^{q-k}=0$，即
+    \begin{equation*}
+        \sigma_q(\alpha+\beta)=\alpha^q+\beta^q+q\sum\limits_{k=1}^{q-1}\frac{(q-1)!}{k!(q-k)!}\alpha^k\beta^{q-k}=\alpha^q+\beta^q=\sigma_q(\alpha)+\sigma_q(\beta)
+    \end{equation*}
+    所以映射$\sigma_q$保持加法。又因为
+    \begin{equation*}
+        \sigma_q(\alpha\beta)=(\alpha\beta)^q=\alpha^q\beta^q=\sigma_q(\alpha)\sigma_q(\beta)
+    \end{equation*}
+    所以映射$\sigma_q$保持乘法。由同态的定义可知，$\sigma_q$是$\mathbb{F}_{q^n}$的自同态，要证明$\sigma_q$是$\mathbb{F}_{q^n}$的自同构，只需证明$\sigma_q$为一一映射即可：
+    \begin{enumerate}
+        \item 先证明$\sigma_q$为单射，即证$ker(\sigma_q)=\{0\}$，其中0为有限域$\mathbb{F}_{q^n}$的加法零元，其中$ker(\sigma_q)=\{a\in\mathbb{F}_{q^n}|\sigma_q(a)=0\}$，即被$\sigma_q$映射至加法零元的元素集合。\\
+        $\because\sigma_q(a)=a^q=0\Rightarrow a=0,\ \therefore ker(\sigma_q)={0}$，所以$\sigma_q$为单射。
+        \item 再证$\sigma_q$为满射，由于$\mathbb{F}_{q^n}$，故$\sigma_q$单射必须是满的。
+    \end{enumerate}
+    所以$\sigma_q$为$\mathbb{F}_{q^n}$的自同构。因为有限域$\mathbb{F}_{q}$中一共只有q个元素，其中元素的指数是q的因数，所以对$\forall a\in\mathbb{F}_{q},\ \sigma_q(a)=a^q=a$，所以$\sigma_q$为$\mathbb{F}_{q^n}$的$\mathbb{F}_{q}$-自同构，不动元是$\mathbb{F}_{q}$。
+\end{solution}
