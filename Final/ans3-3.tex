@@ -1,0 +1,15 @@
+\begin{solution}\ \\
+    因为映射$\tau$保持域$\mathbb{F}_{q}$中的元素不动，所以有
+    \begin{equation*}
+        \begin{aligned}
+            f(\tau(\beta))
+            &=\tau(\beta)^n+a_{n-1}\tau(\beta)^{n-1}+\dots+a_1\tau(\beta)+a_0\\
+            &=\tau(\beta^n)+a_{n-1}\tau(\beta^{n-1})+\dots+a_1\tau(\beta)+a_0\\
+            &=\tau(\beta^n)+\tau(a_{n-1})\tau(\beta^{n-1})+\dots+\tau(a_1)\tau(\beta)+\tau(a_0)\\
+            &=\tau(\beta^n)+\tau(a_{n-1}\beta^{n-1})+\dots+\tau(a_1\beta)+\tau(a_0)\\
+            &=\tau(\beta^n+a_{n-1}\beta^{n-1}+\dots+a_1\beta+a_0)\\
+            &=\tau(f(\beta))=\tau(0)=0
+        \end{aligned}
+    \end{equation*}
+    可见$\tau(\beta)$也是$f(x)$的根，又因为$\beta,\sigma_q(\beta),\dots,\sigma^{n-1}(\beta)$是$\beta$的$f(x)$的所有n个不同的根，所以必然存在$i$，使得$\tau(\beta)=\sigma_q^i(\beta),\ 0\leq i\leq n-1$。
+\end{solution}
