@@ -1,3 +1,8 @@
 \begin{solution}\ \\
-    若存在$M$为$\mathbb{F}_3[x]$的理想且$M$真包含$I$的情况下（即$M\supsetneqq I$），则必定存在一个不属于$I$的多项式$g(x)\in M\\I$
+    若存在$M$为$\mathbb{F}_3[x]$的理想且$M$真包含$I$的情况下（即$M\supsetneqq I$），则必定存在一个不属于$I$的多项式$g(x)\in M\backslash I$，使得$f(x)\nmid g(x)$。\\
+    因为$f(x)$为不可约多项式，所以有$(f(x),g(x))=1$，由广义欧几里得除法以及广义Bézout定理可知：
+    \begin{equation*}
+        \exists s(x),t(x)\in\mathbb{F}_3[x]，s.t.\quad s(x)f(x)+t(x)g(x)=1
+    \end{equation*}
+    由理想的定义可知，若$f(x),g(x)\in M\ s(x),t(x)\in\mathbb{F}_3[x]$，则$s(x)f(x)+t(x)g(x)=1\in M$，故$M=\mathbb{F}_3[x]$，即$I$与$\mathbb{F}_3[x]$之间不存在中间理想，所以由$f(x)$生成的（主）理想$I=(f(x))$是多项式环$\mathbb{F}_3[3]$中的极大理想。
 \end{solution}
