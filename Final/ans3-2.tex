@@ -1,3 +1,16 @@
 \begin{solution}\ \\
-    df 
+    取$f(x)$为生成元$\beta$的定义多项式，则$f(x)$的形式可表示为$f(x)=x^n+a_{n-1}x^{n-1}+\dots+a_1x+a_0,\ a_i\in\mathbb{F}_{q}$，当$f(\beta)=\beta^n+a_{n-1}\beta^{n-1}+\dots+a_1\beta+a_0=0$时，有：
+    \begin{equation*}
+        \begin{aligned}
+            \sigma_q(f(\beta))
+            &=\sigma_q(\beta^n+a_{n-1}\beta^{n-1}+\dots+a_1\beta+a_0)\\
+            &=\sigma_q(\beta^n)+\sigma_q(a_{n-1}\beta^{n-1})+\dots+\sigma_q(a_1\beta)+\sigma_q(a_0)\\
+            &=\sigma_q(\beta^n)+\sigma_q(a_{n-1})\sigma_q(\beta^{n-1})+\dots+\sigma_q(a_1)\sigma_q(\beta)+\sigma_q(a_0)\\
+            &=\sigma_q(\beta)^n+a_{n-1}\sigma_q(\beta)^{n-1}+\dots+a_1\sigma_q(\beta)+a_0\\
+            &=f(\sigma_q(\beta))
+        \end{aligned}
+    \end{equation*}
+    因为$\sigma_q(f(\beta))=\sigma_q(0)=0=f(\sigma_q(\beta))$，所以$\sigma_q(\beta)$也是定义多项式$f(x)$的根。\\
+    归纳地可以得到：$\sigma_{q}^2(\beta),\sigma_{q}^3(\beta),\dots,\sigma_q^{n-1}(\beta)$也都是定义多项式$f(x)$的根。\\
+    由于$f(x)$一共有n个根，所以$\beta,\sigma_q(\beta),\dots,\sigma^{n-1}(\beta)$是$\beta$的$f(x)$的n个不同的根。
 \end{solution}
